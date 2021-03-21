@@ -1,0 +1,29 @@
+Algorithme chaine
+ch : STRING;
+i, nb_mot:=1 , nb_v : INTEGER; // trois variables comme compteurs
+T : ARRAY_OF type[STRING];
+
+début
+    REPEAT
+        write(" donnez la chaine qui se termine avec un point . ");
+        read(ch)
+    UNTIL (ch!="" && ch[length(ch)]=".")
+
+    FOR i FROM 0 TO length(ch) STEP 1  DO
+        T[i]:=ch[i];
+        
+    END_FOR
+
+    FOR i FROM 0 TO length(T) STEP 1  DO
+        IF (T[i]=" ") THEN
+            nb_mot:=nb_mot+1;
+        ELSE_IF ( touppercase(T[i]) in ["a", "e", "i", "o", "u", "y"]) THEN
+            nb_v:=nb_v+1;
+        END_IF
+
+    END_FOR
+    write("La longueur de la phrase est ", length(ch));
+    write("Le nombre de mots dans la phrase est ", nb_mot);
+    write("Le nombre de voyelles dans la phrase est ", nb_v);
+
+fin
